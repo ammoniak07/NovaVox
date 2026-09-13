@@ -807,7 +807,7 @@ UPDATE_MANIFEST_URL = _load_update_manifest_url()
 NOVAVOX2_RELEASES_URL = "https://api.github.com/repos/ammoniak07/NovaVox_2/releases/latest"
 # Repli utilisé uniquement si patch_maj.txt est absent ou ne contient
 # aucune ligne "vX.Y.Z" reconnaissable (voir get_app_version ci-dessous).
-APP_VERSION_FALLBACK = "0.2.8"
+APP_VERSION_FALLBACK = "0.2.9"
 MODEL_DIR_DEFAULT = os.path.join(BASE_DIR, "model")
 GUI_INDEX = os.path.join(RESOURCE_DIR, "gui", "index.html")
 MAIN_WINDOW_TITLE = "Star Citizen — NOVAVOX"
