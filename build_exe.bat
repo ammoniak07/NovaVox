@@ -331,7 +331,15 @@ echo Compilation de l'installateur (Inno Setup) -- variante GitHub...
 if exist "Output\NovaVox_Setup_GitHub.exe" del /q "Output\NovaVox_Setup_GitHub.exe"
 if not exist %ISCC% goto :iscc2_missing
 
-echo https://api.github.com/repos/ammoniak07/NovaVox/releases/latest> "%RES_DIR%\gui\update_source.txt"
+REM Pointe vers les releases GitHub de NovaVox_2 (reedition .NET/WPF),
+REM PAS vers celles de ce depot Python -- le canal GitHub sert desormais
+REM a orienter les utilisateurs de cette version vers la nouvelle
+REM edition plutot qu'a verifier une nouvelle version Python (toujours
+REM possible via la variante "serveur officiel" ci-dessus, inchangee).
+REM Voir NOVAVOX2_RELEASES_URL et le traitement dedie dans
+REM Api.check_for_update (app.py), qui ignore volontairement la
+REM comparaison numerique de version pour cette URL precise.
+echo https://api.github.com/repos/ammoniak07/NovaVox_2/releases/latest> "%RES_DIR%\gui\update_source.txt"
 %ISCC% /DMyAppVersion=%APPVER% installer.iss
 if not exist "Output\NovaVox_Setup.exe" goto :iscc2_failed
 ren "Output\NovaVox_Setup.exe" "NovaVox_Setup_GitHub.exe"
